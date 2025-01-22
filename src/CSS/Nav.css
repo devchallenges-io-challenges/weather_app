@@ -18,3 +18,8 @@
     border-radius: 20px;
     padding-left: 40px;
 }
+
+.temp-selector {
+    position: absolute;
+    right: 25px;
+}
