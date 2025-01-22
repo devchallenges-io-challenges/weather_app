@@ -11,9 +11,22 @@ export default function TempSelector() {
     return (
         <div className='temp-selector'>
             <div className='temp-selector-container'>
-                <div className='slider'></div>
-                <div className='celcius'>C</div>
-                <div className='fahrenheit'>F</div>
+                <div
+                    className={`slider ${isFahrenheit ? 'fahrenheit' : 'celsius'}`}
+                    onClick={handleToggle}
+                ></div>
+                <div
+                    className={`celsius ${!isFahrenheit ? 'active' : ''}`}
+                    onClick={() => setIsFahrenheit(false)}
+                >
+                    °C
+                </div>
+                <div
+                    className={`fahrenheit ${isFahrenheit ? 'active' : ''}`}
+                    onClick={() => setIsFahrenheit(true)}
+                >
+                    °F
+                </div>
             </div>
         </div>
     );

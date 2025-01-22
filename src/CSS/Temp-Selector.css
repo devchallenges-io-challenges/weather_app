@@ -1,3 +1,65 @@
 .temp-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.temp-selector-container {
+    position: relative;
+    width: 90px;
+    height: 40px;
+    background: #20283a;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.slider {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: white;
+    border-radius: 50%;
+    padding: 0 3px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* When isFahrenheit is true (slider on the right) */
+.slider.fahrenheit {
+    transform: translateX(50px);
+}
+
+/* When isFahrenheit is false (slider on the left) */
+.slider.celsius {
+    transform: translateX(-2px);
+}
+
+/* Active state (selected one is black) */
+.celsius.active,
+.fahrenheit.active {
+    color: black;
+}
+
+.celsius,
+.fahrenheit {
+    width: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1;
     color: white;
+}
+
+.fahrenheit {
+    margin-right: 8px;
+}
+
+.celsius {
+    margin-left: 6px;
 }
