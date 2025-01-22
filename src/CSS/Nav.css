@@ -1,0 +1,20 @@
+.nav-container {
+    border: 1px solid white;
+    position: relative;
+    height: 45px;
+}
+
+.search-bar {
+    width: 300px;
+    position: absolute;
+    left: 30px;
+}
+
+.search-bar input {
+    background-color: #20283a;
+    border: none;
+    padding: 15px 0;
+    width: 200px;
+    border-radius: 20px;
+    padding-left: 40px;
+}
