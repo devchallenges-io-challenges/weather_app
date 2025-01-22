@@ -7,7 +7,7 @@ export default function Nav() {
         <>
             <div className='nav-container'>
                 <div className='search-bar'>
-                    <input type='text' placeholder='Search for a city' />
+                    <input type='text' placeholder='Search city...' />
                 </div>
                 <div className='temp-selector'>
                     <TempSelector />

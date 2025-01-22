@@ -1,6 +1,5 @@
-*,
 html {
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 .App {
@@ -15,7 +14,6 @@ html {
 
 nav {
   width: 100vw;
-  border: 1px solid white;
   padding: 20px 0;
   position: relative;
 }
