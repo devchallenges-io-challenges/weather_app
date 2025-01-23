@@ -3,6 +3,7 @@
     height: 100%;
     background-color: #20283a;
     border-radius: 15px;
+    color: white;
 }
 
 .main-card-container {
@@ -14,7 +15,6 @@
     display: flex;
     position: relative;
     height: 40%;
-    color: white;
 }
 
 .current-temp {
@@ -36,4 +36,46 @@
 .time {
     font-size: 18px;
     text-align: right;
+}
+
+/* Second Row */
+
+.second-row {
+    display: flex;
+    height: 20%;
+    position: relative;
+    top: 20px;
+}
+
+.weather-type {
+    display: flex;
+    align-items: center;
+    width: 150px;
+}
+
+.weather-description {
+    margin-left: 15px;
+    font-size: 18px;
+    margin-top: 0px;
+}
+
+.wind-speed-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+.wind-speed {
+    display: flex;
+    align-items: center;
+    width: 130px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+}
+
+.wind-speed-value {
+    margin-left: 15px;
+    margin-top: -8px;
 }
