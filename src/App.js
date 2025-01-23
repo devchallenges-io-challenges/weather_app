@@ -105,7 +105,7 @@ function App() {
           <MainCard currentTemp={currentTemp} getWeatherIcon={getWeatherIcon} tempChoice={tempChoice} />
         </div>
         <div className='upper-right'>
-          <Hourly weatherData={weatherData} tempChoice={tempChoice} />
+          <Hourly weatherData={weatherData} tempChoice={tempChoice} getWeatherIcon={getWeatherIcon} />
         </div>
       </section>
     </div>

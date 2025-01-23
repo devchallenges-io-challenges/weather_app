@@ -1,7 +1,7 @@
 import react, { useState, useEffect, use } from 'react';
 import "../CSS/Hourly.css";
 
-export default function Hourly({ weatherData }) {
+export default function Hourly({ weatherData, getWeatherIcon }) {
     const [hourlyForecasts, setHourlyForecasts] = useState([]);
 
     const updateHourlyForecasts = () => {
@@ -12,10 +12,16 @@ export default function Hourly({ weatherData }) {
         }
     };
 
+    useEffect(() => {
+        const icon = getWeatherIcon(weatherData);
+        console.log("Weather Icon: ", icon);
+    }, []);
+
     // Runs when weatherData changes
     useEffect(() => {
         updateHourlyForecasts();
         console.log("Hourly Forecasts: ", hourlyForecasts);
+        console.log("Icon",)
     }, [weatherData]);
 
     return (
@@ -33,7 +39,7 @@ export default function Hourly({ weatherData }) {
                             </p>
                             <div className='line'></div>
                             <img
-                                src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`}
+                                src={getWeatherIcon(hourlyForecasts)}
                                 alt="Weather Icon"
                                 className="weather-icon-hourly"
                             />
