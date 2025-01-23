@@ -10,6 +10,7 @@ html {
   background-position: center;
   height: 100vh;
   background-color: #060816;
+  font-family: 'Outfit';
 }
 
 nav {
@@ -31,7 +32,6 @@ nav {
 }
 
 .upper-left {
-  border: 1px solid white;
   width: calc(30% - 20px);
   margin: 10px;
 }

@@ -1,0 +1,39 @@
+.main-card {
+    width: 100%;
+    height: 100%;
+    background-color: #20283a;
+    border-radius: 15px;
+}
+
+.main-card-container {
+    height: calc(100% - 20px);
+    padding: 10px;
+}
+
+.top-row {
+    display: flex;
+    position: relative;
+    height: 40%;
+    color: white;
+}
+
+.current-temp {
+    font-size: 116px;
+    height: 55%;
+    position: relative;
+    top: 30%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.city-time {
+    font-size: 36px;
+    position: absolute;
+    right: 10px;
+    top: 10%;
+}
+
+.time {
+    font-size: 18px;
+    text-align: right;
+}
