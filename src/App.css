@@ -17,3 +17,31 @@ nav {
   padding: 20px 0;
   position: relative;
 }
+
+.upper {
+  border: 1px solid white;
+  height: 36%;
+  display: flex;
+}
+
+.upper-left,
+.upper-right {
+  height: calc(100% - 20px);
+  margin: 10px;
+}
+
+.upper-left {
+  border: 1px solid white;
+  width: calc(30% - 20px);
+  margin: 10px;
+}
+
+.upper-right {
+  border: 1px solid white;
+  width: calc(70% - 20px);
+}
+
+.lower {
+  border: 1px solid white;
+  height: 55%;
+}
