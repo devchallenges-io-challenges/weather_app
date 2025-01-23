@@ -44,13 +44,14 @@
     display: flex;
     height: 20%;
     position: relative;
-    top: 20px;
+    top: 40px;
 }
 
 .weather-type {
     display: flex;
     align-items: center;
     width: 150px;
+    margin-left: 15px;
 }
 
 .weather-description {
@@ -70,7 +71,7 @@
     width: 130px;
     position: absolute;
     right: 0;
-    top: 50%;
+    top: 53%;
     transform: translateY(-50%);
     font-size: 18px;
 }
@@ -79,3 +80,40 @@
     margin-left: 15px;
     margin-top: -8px;
 }
+
+/* Third Row */
+
+.third-row {
+    display: flex;
+    height: 30%;
+    position: relative;
+    top: 50px;
+}
+
+.feels-like {
+    display: flex;
+    align-items: center;
+    width: 130px;
+    position: absolute;
+    left: 20px;
+    bottom: 25px;
+    transform: translateY(-50%);
+    font-size: 18px;
+}
+
+.feels-like-value {
+    margin-left: 10px;
+}
+
+.high-low {
+    display: flex;
+    align-items: center;
+    width: auto;
+    position: absolute;
+    right: 20px;
+    bottom: 25px;
+    transform: translateY(-50%);
+    font-size: 18px;
+}
+
+.high-low-value {}

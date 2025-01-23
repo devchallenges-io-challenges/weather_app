@@ -61,6 +61,19 @@ export default function MainCard({ currentTemp, getWeatherIcon }) {
                             <div className='wind-speed-value'>{currentTemp.wind.speed} m/s</div>
                         </div>
                     </div>
+
+                    <div className='third-row'>
+                        <div className='feels-like'>
+                            <div className='feels-like-label'>Feels like: </div>
+                            <div className='feels-like-value'>{Math.round(currentTemp.main.feels_like)}°</div>
+                        </div>
+
+                        <div className='high-low'>
+                            <div className='high-low-value'>
+                                {Math.round(currentTemp.main.temp_max)}° to {Math.round(currentTemp.main.temp_min)}°
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

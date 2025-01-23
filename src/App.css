@@ -21,7 +21,7 @@ nav {
 
 .upper {
   border: 1px solid white;
-  height: 36%;
+  height: 30%;
   display: flex;
 }
 
@@ -43,5 +43,5 @@ nav {
 
 .lower {
   border: 1px solid white;
-  height: 55%;
+  height: 60%;
 }
