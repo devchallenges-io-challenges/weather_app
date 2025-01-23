@@ -2,7 +2,7 @@ import react, { useState, useEffect } from 'react';
 import "../CSS/Nav.css";
 import TempSelector from './Temp-Selector';
 
-export default function Nav() {
+export default function Nav({ tempChoice, setTempChoice }) {
     return (
         <>
             <div className='nav-container'>
@@ -16,7 +16,7 @@ export default function Nav() {
                     <input type='text' placeholder='Search city...' />
                 </div>
                 <div className='temp-selector'>
-                    <TempSelector />
+                    <TempSelector tempChoice={tempChoice} setTempChoice={setTempChoice} />
                 </div>
             </div>
 

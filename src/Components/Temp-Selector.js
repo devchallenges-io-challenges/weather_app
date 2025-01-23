@@ -1,29 +1,32 @@
 import react, { useState, useEffect } from 'react';
 import "../CSS/Temp-Selector.css";
 
-export default function TempSelector() {
-    const [isFahrenheit, setIsFahrenheit] = useState(true);
-
+export default function TempSelector({ tempChoice, setTempChoice }) {
     const handleToggle = () => {
-        setIsFahrenheit(prevState => !prevState);
+        setTempChoice(prevChoice => (prevChoice === "F" ? "C" : "F"));
     };
 
     return (
         <div className='temp-selector'>
             <div className='temp-selector-container'>
+                {/* Slider moves based on tempChoice */}
                 <div
-                    className={`slider ${isFahrenheit ? 'fahrenheit' : 'celsius'}`}
+                    className={`slider ${tempChoice === "F" ? 'fahrenheit' : 'celsius'}`}
                     onClick={handleToggle}
                 ></div>
+
+                {/* °C Button */}
                 <div
-                    className={`celsius ${!isFahrenheit ? 'active' : ''}`}
-                    onClick={() => setIsFahrenheit(false)}
+                    className={`celsius ${tempChoice === "C" ? 'active' : ''}`}
+                    onClick={() => setTempChoice("C")}
                 >
                     °C
                 </div>
+
+                {/* °F Button */}
                 <div
-                    className={`fahrenheit ${isFahrenheit ? 'active' : ''}`}
-                    onClick={() => setIsFahrenheit(true)}
+                    className={`fahrenheit ${tempChoice === "F" ? 'active' : ''}`}
+                    onClick={() => setTempChoice("F")}
                 >
                     °F
                 </div>

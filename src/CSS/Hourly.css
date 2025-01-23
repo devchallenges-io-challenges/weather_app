@@ -1,0 +1,51 @@
+.hourly-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 25px;
+    height: 100%;
+    padding-left: 40px;
+    color: white;
+}
+
+.hourly-forecast {
+    background-color: #20283a;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    min-width: 100px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 120px;
+    position: relative;
+}
+
+.hour {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.line {
+    border: 1px solid #595959;
+    width: 75%;
+    margin: 10px auto;
+}
+
+.weather-icon-hourly {
+    width: 130px;
+    height: 130px;
+}
+
+.temp {
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    bottom: -25px;
+    letter-spacing: 1px;
+    font-size: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.weather-description-hourly {
+    font-size: 12px;
+    color: #ddd;
+}

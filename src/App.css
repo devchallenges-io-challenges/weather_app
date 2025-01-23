@@ -21,7 +21,7 @@ nav {
 
 .upper {
   border: 1px solid white;
-  height: 30%;
+  height: 35%;
   display: flex;
 }
 
@@ -32,13 +32,13 @@ nav {
 }
 
 .upper-left {
-  width: calc(30% - 20px);
+  width: calc(25% - 20px);
   margin: 10px;
 }
 
 .upper-right {
-  border: 1px solid white;
-  width: calc(70% - 20px);
+  width: calc(75% - 30px);
+
 }
 
 .lower {

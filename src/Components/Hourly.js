@@ -20,7 +20,33 @@ export default function Hourly({ weatherData }) {
 
     return (
         <>
-
+            <div className='hourly-container'>
+                {hourlyForecasts.length > 0 ? (
+                    hourlyForecasts.map((forecast, index) => (
+                        <div key={index} className='hourly-forecast'>
+                            <p className='hour'>
+                                {new Date(forecast.dt * 1000).toLocaleTimeString([], {
+                                    hour: "2-digit",
+                                    minute: "2-digit",
+                                    hour12: true
+                                })}
+                            </p>
+                            <div className='line'></div>
+                            <img
+                                src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`}
+                                alt="Weather Icon"
+                                className="weather-icon-hourly"
+                            />
+                            <p className='weather-description-hourly'>
+                                {forecast.weather[0].description.charAt(0).toUpperCase() + forecast.weather[0].description.slice(1)}
+                            </p>
+                            <p className='temp'>{Math.round(forecast.main.temp)}°</p>
+                        </div>
+                    ))
+                ) : (
+                    <p>Loading hourly forecast...</p>
+                )}
+            </div>
         </>
     )
 }
