@@ -10,6 +10,7 @@
     height: calc(95% - 20px);
     margin: 10px;
     max-width: 500px;
+    color: white;
 }
 
 .other-city {
