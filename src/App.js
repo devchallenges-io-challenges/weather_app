@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './Components/Nav';
 import MainCard from './Components/MainCard';
 import Hourly from './Components/Hourly';
+import OtherCities from './Components/OtherCities';
 
 import clear from "./Assets/clear.png";
 import cloudy from "./Assets/cloudy.png";
@@ -107,6 +108,10 @@ function App() {
         <div className='upper-right'>
           <Hourly weatherData={weatherData} tempChoice={tempChoice} getWeatherIcon={getWeatherIcon} />
         </div>
+      </section>
+
+      <section className='lower'>
+        <OtherCities currentTemp={currentTemp} />
       </section>
     </div>
   );

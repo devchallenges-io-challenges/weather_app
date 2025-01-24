@@ -1,0 +1,20 @@
+.other-cities-header {
+    color: white;
+    font-size: 24px;
+    margin: 10px;
+    height: 5%;
+}
+
+.other-cities-container {
+    width: calc(25% - 20px);
+    height: calc(95% - 20px);
+    margin: 10px;
+    max-width: 500px;
+}
+
+.other-city {
+    height: calc(33.33% - 15px);
+    margin-top: 10px;
+    background-color: #20283a;
+    border-radius: 15px;
+}

@@ -12,9 +12,8 @@
     padding: 15px;
     border-radius: 15px;
     text-align: center;
-    min-width: 100px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 120px;
+    width: 85px;
     position: relative;
 }
 
@@ -30,8 +29,8 @@
 }
 
 .weather-icon-hourly {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     position: relative;
     top: 10px;
 }
@@ -40,7 +39,7 @@
     font-size: 16px;
     font-weight: bold;
     position: absolute;
-    bottom: -25px;
+    bottom: -40px;
     letter-spacing: 1px;
     font-size: 48px;
     left: 50%;
@@ -49,7 +48,7 @@
 
 .weather-description-hourly {
     position: relative;
-    top: 10px;
+    top: 0px;
     font-size: 14px;
     font-weight: bold;
     color: #ddd;

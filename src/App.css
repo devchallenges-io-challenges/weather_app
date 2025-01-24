@@ -20,7 +20,7 @@ nav {
 }
 
 .upper {
-  height: 35%;
+  height: 30%;
   display: flex;
 }
 
@@ -42,5 +42,8 @@ nav {
 
 .lower {
   border: 1px solid white;
-  height: 60%;
+  height: 53%;
+  max-height: 600px;
+  position: relative;
+  top: 25px;
 }
