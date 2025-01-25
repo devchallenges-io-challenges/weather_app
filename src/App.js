@@ -4,6 +4,7 @@ import Nav from './Components/Nav';
 import MainCard from './Components/MainCard';
 import Hourly from './Components/Hourly';
 import OtherCities from './Components/OtherCities';
+import FiveDayForecast from './Components/FiveDayForecast';
 
 import clear from "./Assets/clear.png";
 import cloudy from "./Assets/cloudy.png";
@@ -63,7 +64,7 @@ function App() {
         const response = await fetch(forecastLink);
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const data = await response.json();
-        console.log("Weather Forecast Data: ", data);
+        console.log("Weather Forecast Data(Line 67: app.js): ", data);
         setWeatherData(data);
       } catch (error) {
         setError(error.message);
@@ -83,7 +84,6 @@ function App() {
         const response = await fetch(currentWeatherLink);
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const data = await response.json();
-        console.log("Current Weather Data: ", data);
         setCurrentTemp(data);
       } catch (error) {
         setError(error.message);
@@ -112,7 +112,13 @@ function App() {
       </section>
 
       <section className='lower'>
-        <OtherCities unit={unit} getWeatherIcon={getWeatherIcon} />
+        <div className='lower-left'>
+          <OtherCities unit={unit} getWeatherIcon={getWeatherIcon} />
+        </div>
+
+        <div className='lower-right'>
+
+        </div>
       </section>
     </div>
   );

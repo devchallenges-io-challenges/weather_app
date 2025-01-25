@@ -213,7 +213,6 @@ export default function OtherCities({ unit, getWeatherIcon }) {
                 }, {});
 
                 setWeatherData(formattedData);
-                console.log("Weather Data: ", formattedData);
             } catch (error) {
                 setError(error.message);
             } finally {
