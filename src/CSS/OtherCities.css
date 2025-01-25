@@ -13,9 +13,10 @@
     color: white;
 }
 
-.other-city {
+.city-card {
     height: calc(33.33% - 15px);
     margin-top: 10px;
     background-color: #20283a;
     border-radius: 15px;
+    border: 1px solid white;
 }

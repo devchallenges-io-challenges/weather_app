@@ -40,6 +40,7 @@ function App() {
       return defaultIcon;
     }
 
+
     const weatherMain = weatherData.weather[0].main.toLowerCase();
     const iconMap = {
       clear: clear,
@@ -91,7 +92,7 @@ function App() {
       }
     };
     fetchCurrentWeather();
-  }, [unit]); // ✅ Runs when `unit` changes
+  }, [unit]);
 
   if (loading) return <p>Loading weather data...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -111,7 +112,7 @@ function App() {
       </section>
 
       <section className='lower'>
-        <OtherCities currentTemp={currentTemp} />
+        <OtherCities unit={unit} getWeatherIcon={getWeatherIcon} />
       </section>
     </div>
   );
