@@ -45,6 +45,7 @@
 
 .city-description {
     font-size: 14px;
+    margin-top: 0px !important;
 }
 
 /* Temp-container */
@@ -60,4 +61,5 @@
 .city-temp {
     font-size: 32px;
     font-weight: 600;
+    margin-top: 10px;
 }

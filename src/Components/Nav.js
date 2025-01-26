@@ -1,8 +1,22 @@
-import react, { useState, useEffect } from 'react';
+import react, { useState, useEffect, use } from 'react';
 import "../CSS/Nav.css";
 import TempSelector from './Temp-Selector';
 
-export default function Nav({ tempChoice, setTempChoice }) {
+export default function Nav({ tempChoice, setTempChoice, setCity, city }) {
+    const [inputValue, setInputValue] = useState("");
+
+    const handleCityChange = (e) => {
+        setInputValue(e.target.value);
+    }
+
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            const chosenCity = inputValue.toLowerCase();
+            setCity(inputValue); // Submit input when Enter is pressed
+            // console.log("Submitted city:", city);
+        }
+    };
+
     return (
         <>
             <div className='nav-container'>
@@ -13,7 +27,7 @@ export default function Nav({ tempChoice, setTempChoice }) {
                             <path d="M20 20L17 17" stroke="#97A3B6" stroke-width="2" stroke-linecap="round" />
                         </svg>
                     </div>
-                    <input type='text' placeholder='Search city...' />
+                    <input type='text' placeholder='Search city...' onChange={(e) => { handleCityChange(e) }} onKeyDown={handleKeyDown} value={inputValue} />
                 </div>
                 <div className='temp-selector'>
                     <TempSelector tempChoice={tempChoice} setTempChoice={setTempChoice} />

@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { format, parseISO, isToday } from 'date-fns';
 import "../CSS/FiveDayForecast.css";
 
-export default function FiveDayForecast({ getWeatherIcon, forecast }) {
-    useEffect(() => {
-        console.log("Five Day Forecast: ", forecast);
-    }, [forecast]);
+export default function FiveDayForecast({ getWeatherIcon, forecast, weatherData }) {
+    // useEffect(() => {
+    //     console.log("Five Day Forecast: ", forecast);
+    // }, [forecast]);
 
     // Function to get the day name or "Today"
     const getDayName = (dateString) => {
@@ -31,7 +31,7 @@ export default function FiveDayForecast({ getWeatherIcon, forecast }) {
                         <div className="forecast-info">
                             <p className="day-name">{getDayName(day.date)}</p>
                             <img
-                                src={getWeatherIcon(forecast[index])}
+                                src={getWeatherIcon({ weather: [{ main: day.main, icon: day.icon }] })}
                                 alt={day.description}
                                 className="weather-icon"
                             />

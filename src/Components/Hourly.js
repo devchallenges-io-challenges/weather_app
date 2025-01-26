@@ -13,15 +13,15 @@ export default function Hourly({ weatherData, getWeatherIcon }) {
         }
     };
 
-    useEffect(() => {
-        const icon = getWeatherIcon(weatherData);
-        console.log("Weather Icon: ", icon);
-    }, []);
+    // useEffect(() => {
+    //     const icon = getWeatherIcon(weatherData);
+    //     console.log("Weather Icon: ", icon);
+    // }, []);
 
     // Runs when weatherData changes
     useEffect(() => {
         updateHourlyForecasts();
-        console.log("Hourly Forecasts: ", hourlyForecasts);
+        // console.log("Hourly Forecasts: ", hourlyForecasts);
     }, [weatherData]);
 
     return (

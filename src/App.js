@@ -20,11 +20,17 @@ function App() {
   const [error, setError] = useState(null);
   const [forecast, setForecast] = useState([]);
 
+  const [city, setCity] = useState("Chicago");
+
   const [tempChoice, setTempChoice] = useState("F"); // Default Fahrenheit
   const [unit, setUnit] = useState("imperial"); // Default API unit
 
-  const city = "Rockford";
+  // const city = "Rockford";
   const apiKey = "d364742c2d8b7f2f0c576a34aeaca478";
+
+  // API Links (update dynamically based on `unit`)
+  const forecastLink = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${unit}`;
+  const currentWeatherLink = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
 
   // Update API unit based on tempChoice
   useEffect(() => {
@@ -32,9 +38,6 @@ function App() {
     setUnit(newUnit);
   }, [tempChoice]);
 
-  // API Links (update dynamically based on `unit`)
-  const forecastLink = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${unit}`;
-  const currentWeatherLink = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
 
   // Function to get the correct weather icon
   const getWeatherIcon = (weatherData) => {
@@ -67,6 +70,7 @@ function App() {
           tempMin: entry.main.temp_min,
           tempMax: entry.main.temp_max,
           icon: entry.weather[0].icon,
+          main: entry.weather[0].main,
           description: entry.weather[0].description,
         };
       } else {
@@ -80,6 +84,7 @@ function App() {
       tempMin: dailyForecast[date].tempMin,
       tempMax: dailyForecast[date].tempMax,
       icon: dailyForecast[date].icon,
+      main: dailyForecast[date].main,
       description: dailyForecast[date].description,
     }));
   };
@@ -94,7 +99,7 @@ function App() {
         const response = await fetch(forecastLink);
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const data = await response.json();
-        console.log("Weather Forecast Data(Line 67: app.js): ", data);
+        // console.log("Weather Forecast Data(Line 67: app.js): ", data);
         setWeatherData(data);
       } catch (error) {
         setError(error.message);
@@ -103,7 +108,7 @@ function App() {
       }
     };
     fetchForecast();
-  }, [unit]); // ✅ Runs when `unit` changes
+  }, [unit, city]); // ✅ Runs when `unit` changes
 
   // Fetch Current Weather Data
   useEffect(() => {
@@ -122,12 +127,12 @@ function App() {
       }
     };
     fetchCurrentWeather();
-  }, [unit]);
+  }, [unit, city]);
 
   useEffect(() => {
     if (!weatherData || !weatherData.list) return; // ✅ Prevents calling getFiveDayForecast on null
     setForecast(getFiveDayForecast(weatherData.list));
-  }, [weatherData]);
+  }, [weatherData, city]);
 
   if (loading) return <p>Loading weather data...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -135,7 +140,7 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <Nav tempChoice={tempChoice} setTempChoice={setTempChoice} />
+        <Nav tempChoice={tempChoice} setTempChoice={setTempChoice} setCity={setCity} city={city} />
       </nav>
       <section className='upper'>
         <div className='upper-left'>
@@ -155,7 +160,10 @@ function App() {
           <FiveDayForecast getWeatherIcon={getWeatherIcon} weatherData={weatherData} forecast={forecast} currentTemp={currentTemp} />
         </div>
       </section>
+
     </div>
+
+
   );
 }
 

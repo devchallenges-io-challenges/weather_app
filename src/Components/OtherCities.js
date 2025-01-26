@@ -207,7 +207,8 @@ export default function OtherCities({ unit, getWeatherIcon }) {
                         temp: cityData.main.temp,
                         country: getCountryName(cityData.sys.country),
                         description: capitalizeFirstLetter(cityData.weather[0].description),
-                        icon: cityData.weather[0].icon
+                        icon: cityData.weather[0].icon,
+                        main: cityData.weather[0].main
                     };
                     return acc;
                 }, {});
@@ -247,7 +248,7 @@ export default function OtherCities({ unit, getWeatherIcon }) {
                                 <div className="temp-container">
                                     <img
                                         // src={`https://openweathermap.org/img/wn/${cityData.icon}@2x.png`}
-                                        src={getWeatherIcon(cityData)}
+                                        src={getWeatherIcon({ weather: [{ main: cityData.main, icon: cityData.icon }] })}
                                         alt="Weather icon"
                                         className="city-icon"
                                     />
