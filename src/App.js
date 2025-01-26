@@ -90,7 +90,6 @@ function App() {
     }));
   };
 
-
   // Fetch Weather Forecast Data
   useEffect(() => {
     if (!unit) return; // Prevent running before unit is set
