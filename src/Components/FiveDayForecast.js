@@ -1,41 +1,57 @@
-import react, { useState, useEffect, use } from 'react';
-import { format, parseISO, isToday } from 'date-fns'; // Import date-fns functions to change a date into a day
+import React, { useEffect } from 'react';
+import { format, parseISO, isToday } from 'date-fns';
 import "../CSS/FiveDayForecast.css";
 
 export default function FiveDayForecast({ getWeatherIcon, forecast }) {
-    // const position = ((currentTemp - lowTemp) / (highTemp - lowTemp)) * 100; 
     useEffect(() => {
         console.log("Five Day Forecast: ", forecast);
     }, [forecast]);
 
-    // This will take in a date "YYYY-MM-DD" and return the day of the week
+    // Function to get the day name or "Today"
     const getDayName = (dateString) => {
         const date = parseISO(dateString);
-        return isToday(date) ? "Today" : format(date, 'EEEE'); // Returns "Today" or day name
+        return isToday(date) ? "Today" : format(date, 'EEE'); // Returns "Today" or full day name
+    };
+
+    const capitalizeFirstLetter = (text) => {
+        if (!text) return ""; // Handle empty or undefined text
+        return text.charAt(0).toUpperCase() + text.slice(1);
     };
 
     return (
         <div className="five-day-forecast">
-            <div className="other-cities-header">Other Cities</div>
-            {forecast.map((day, index) => (
-                <div key={index} className="forecast-day">
-                    <p className="day-name">{getDayName(day.date)}</p> {/* Display Day Name */}
-                    <img
-                        src={`https://openweathermap.org/img/wn/${day.icon}@2x.png`}
-                        alt={day.description}
-                        className="weather-icon"
-                    />
-                    <p className="description">{day.description}</p>
-                    <div className="weather-bar">
-                        <span className="low-temp">Low: {Math.round(day.tempMin)}°</span>
-                        <div className="bar">
-                            {/* Placeholder for a temperature bar */}
-                        </div>
-                        <span className="high-temp">High: {Math.round(day.tempMax)}°</span>
-                    </div>
-                </div>
-            ))}
-        </div>
+            <h3 className="forecast-header">5-Day Forecast</h3>
+            {forecast.map((day, index) => {
+                // Calculate the position and width of the blue bar
+                const barStart = ((day.tempMin + 10) / 50) * 100; // Offset for positioning
+                const barWidth = ((day.tempMax - day.tempMin) / 50) * 100; // Adjust width to fit scale
 
+                return (
+                    <div key={index} className="forecast-row">
+                        <div className="forecast-info">
+                            <p className="day-name">{getDayName(day.date)}</p>
+                            <img
+                                src={getWeatherIcon(forecast[index])}
+                                alt={day.description}
+                                className="weather-icon"
+                            />
+                            <p className="description">{capitalizeFirstLetter(day.description)}</p>
+                        </div>
+
+                        {/* Temperature Range Bar */}
+                        <div className="temperature-bar">
+                            <span className="low-temp">{Math.round(day.tempMin)}°</span>
+                            <div className="bar">
+                                <div
+                                    className="temp-range"
+                                    style={{ left: `${barStart}%`, width: `${barWidth}%` }}
+                                ></div>
+                            </div>
+                            <span className="high-temp">{Math.round(day.tempMax)}°</span>
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
     );
 }

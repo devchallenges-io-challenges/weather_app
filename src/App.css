@@ -55,7 +55,6 @@ nav {
 }
 
 .lower-left {
-  border: 1px solid white;
   width: calc(25% - 20px);
   margin: 10px;
 }
