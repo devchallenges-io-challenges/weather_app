@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import './App.css';
 import Nav from './Components/Nav';
 import MainCard from './Components/MainCard';
@@ -18,6 +18,7 @@ function App() {
   const [currentTemp, setCurrentTemp] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [forecast, setForecast] = useState([]);
 
   const [tempChoice, setTempChoice] = useState("F"); // Default Fahrenheit
   const [unit, setUnit] = useState("imperial"); // Default API unit
@@ -54,6 +55,35 @@ function App() {
 
     return iconMap[weatherMain] || defaultIcon;
   };
+
+  const getFiveDayForecast = (list) => {
+    const dailyForecast = {};
+
+    list.forEach((entry) => {
+      const date = new Date(entry.dt * 1000).toISOString().split("T")[0]; // Extract YYYY-MM-DD
+
+      if (!dailyForecast[date]) {
+        dailyForecast[date] = {
+          tempMin: entry.main.temp_min,
+          tempMax: entry.main.temp_max,
+          icon: entry.weather[0].icon,
+          description: entry.weather[0].description,
+        };
+      } else {
+        dailyForecast[date].tempMin = Math.min(dailyForecast[date].tempMin, entry.main.temp_min);
+        dailyForecast[date].tempMax = Math.max(dailyForecast[date].tempMax, entry.main.temp_max);
+      }
+    });
+
+    return Object.keys(dailyForecast).slice(0, 5).map((date) => ({
+      date,
+      tempMin: dailyForecast[date].tempMin,
+      tempMax: dailyForecast[date].tempMax,
+      icon: dailyForecast[date].icon,
+      description: dailyForecast[date].description,
+    }));
+  };
+
 
   // Fetch Weather Forecast Data
   useEffect(() => {
@@ -94,6 +124,11 @@ function App() {
     fetchCurrentWeather();
   }, [unit]);
 
+  useEffect(() => {
+    if (!weatherData || !weatherData.list) return; // ✅ Prevents calling getFiveDayForecast on null
+    setForecast(getFiveDayForecast(weatherData.list));
+  }, [weatherData]);
+
   if (loading) return <p>Loading weather data...</p>;
   if (error) return <p>Error: {error}</p>;
 
@@ -117,7 +152,7 @@ function App() {
         </div>
 
         <div className='lower-right'>
-
+          <FiveDayForecast getWeatherIcon={getWeatherIcon} weatherData={weatherData} forecast={forecast} currentTemp={currentTemp} />
         </div>
       </section>
     </div>

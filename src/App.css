@@ -46,4 +46,21 @@ nav {
   max-height: 600px;
   position: relative;
   top: 25px;
+  display: flex;
+}
+
+.lower-left,
+.lower-right {
+  height: 100%;
+}
+
+.lower-left {
+  border: 1px solid white;
+  width: calc(25% - 20px);
+  margin: 10px;
+}
+
+.lower-right {
+  width: calc(75% - 30px);
+  margin: 10px;
 }
