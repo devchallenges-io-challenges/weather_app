@@ -238,16 +238,21 @@ export default function OtherCities({ unit, getWeatherIcon }) {
 
                         return (
                             <div key={index} className='city-card'>
-                                <div className='city-name'>{cityData.cityName}</div>
-                                <div className='city-temp'>{Math.round(cityData.temp)}°</div>
-                                <div className='city-country'>{cityData.country}</div>
-                                <div className='city-description'>{cityData.description}</div>
-                                <img
-                                    // src={`https://openweathermap.org/img/wn/${cityData.icon}@2x.png`}
-                                    src={getWeatherIcon(cityData)}
-                                    alt="Weather icon"
-                                    className="city-icon"
-                                />
+                                <div className="city-data-container">
+                                    <div className='city-country'>{cityData.country}</div>
+                                    <div className='city-name'>{cityData.cityName}</div>
+                                    <div className='city-description'>{cityData.description}</div>
+                                </div>
+
+                                <div className="temp-container">
+                                    <img
+                                        // src={`https://openweathermap.org/img/wn/${cityData.icon}@2x.png`}
+                                        src={getWeatherIcon(cityData)}
+                                        alt="Weather icon"
+                                        className="city-icon"
+                                    />
+                                    <div className='city-temp'>{Math.round(cityData.temp)}°</div>
+                                </div>
                             </div>
                         );
                     })

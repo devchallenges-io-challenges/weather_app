@@ -5,7 +5,7 @@
     /* Dark theme */
     border-radius: 10px;
     color: white;
-    width: 100%;
+    width: calc(100% - 20px);
 }
 
 .forecast-header {
@@ -20,7 +20,8 @@
     background: #20283a;
     border-radius: 8px;
     gap: 15px;
-    width: 100%;
+    width: 94%;
+    height: 70px !important;
 }
 
 .forecast-info {
