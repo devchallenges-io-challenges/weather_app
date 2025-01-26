@@ -12,12 +12,6 @@ export default function Hourly({ weatherData, getWeatherIcon }) {
             console.warn("weatherData.list is not available yet", weatherData);
         }
     };
-
-    // useEffect(() => {
-    //     const icon = getWeatherIcon(weatherData);
-    //     console.log("Weather Icon: ", icon);
-    // }, []);
-
     // Runs when weatherData changes
     useEffect(() => {
         updateHourlyForecasts();

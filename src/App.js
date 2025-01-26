@@ -46,7 +46,6 @@ function App() {
       return defaultIcon;
     }
 
-
     const weatherMain = weatherData.weather[0].main.toLowerCase();
     const iconMap = {
       clear: clear,
@@ -161,10 +160,7 @@ function App() {
           <FiveDayForecast getWeatherIcon={getWeatherIcon} weatherData={weatherData} forecast={forecast} currentTemp={currentTemp} />
         </div>
       </section>
-
     </div>
-
-
   );
 }
 
