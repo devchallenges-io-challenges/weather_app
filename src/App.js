@@ -5,6 +5,7 @@ import MainCard from './Components/MainCard';
 import Hourly from './Components/Hourly';
 import OtherCities from './Components/OtherCities';
 import FiveDayForecast from './Components/FiveDayForecast';
+import Loading from './Components/Loading';
 
 import clear from "./Assets/clear.png";
 import cloudy from "./Assets/cloudy.png";
@@ -99,6 +100,7 @@ function App() {
         const response = await fetch(forecastLink);
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const data = await response.json();
+
         // console.log("Weather Forecast Data(Line 67: app.js): ", data);
         setWeatherData(data);
       } catch (error) {
@@ -134,7 +136,7 @@ function App() {
     setForecast(getFiveDayForecast(weatherData.list));
   }, [weatherData, city]);
 
-  if (loading) return <p>Loading weather data...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error: {error}</p>;
 
   return (

@@ -30,7 +30,7 @@
     font-size: 36px;
     position: absolute;
     right: 10px;
-    top: 10%;
+    top: 22%;
 }
 
 .time {
@@ -52,17 +52,24 @@
     align-items: center;
     width: 200px;
     margin-left: 15px;
+
+}
+
+.weather-icon img {
+    width: 40px;
+    height: 40px;
+    position: relative;
 }
 
 .weather-description {
     margin-left: 15px;
     font-size: 18px;
-    margin-top: 0px;
 }
 
 .wind-speed-icon img {
     width: 40px;
     height: 40px;
+    position: relative;
 }
 
 .wind-speed {

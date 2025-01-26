@@ -70,7 +70,7 @@ nav {
 @media screen and (min-width: 2150px),
 screen and (min-height: 1150px) {
   .App {
-    width: 1600px;
+    width: 1700px;
     height: 1300px;
     margin: 0 auto;
   }
