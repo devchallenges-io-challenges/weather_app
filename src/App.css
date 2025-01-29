@@ -85,4 +85,8 @@ screen and (min-height: 1150px) {
     width: 65px !important;
   }
 
+  .upper {
+    height: 35%;
+  }
+
 }
