@@ -138,3 +138,42 @@ screen and (max-height: 1150px) {
     width: 100% !important;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .App {
+    width: 100%;
+  }
+
+  .upper {
+    height: 100%;
+    border: 1px solid white;
+    flex-direction: column;
+  }
+
+  .main-card {
+    height: 50% !important;
+    position: relative !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .current-temp {
+    font-size: 75px !important;
+    top: 40px !important;
+  }
+
+  .upper-left {
+    width: calc(100% - 30px);
+    height: 80% !important;
+  }
+
+  .lower-left {
+    width: calc(45% - 20px);
+  }
+
+  .forecast-row {
+    width: 100% !important;
+  }
+
+}
