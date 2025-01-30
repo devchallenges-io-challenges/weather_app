@@ -76,13 +76,21 @@ screen and (min-height: 1150px) {
   }
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1130px),
+screen and (max-height: 1150px) {
   .App {
     overflow: scroll;
+    width: auto;
+  }
+
+  .hourly-container {
+    flex-wrap: wrap;
+    flex: 1;
   }
 
   .hourly-forecast {
-    width: 80px !important;
+    width: 70px !important;
+    height: 230px;
   }
 
   .weather-icon-hourly {
@@ -98,14 +106,35 @@ screen and (min-height: 1150px) {
   .temp {
     font-size: 48px !important;
     font-weight: normal !important;
-    bottom: -20px !important;
+    bottom: -35px !important;
   }
 
   .upper {
-    height: 35%;
+    height: 45%;
   }
 
-  .upper-right {
-    border: 1px solid white;
+  .main-card {
+    height: 45% !important;
+    position: relative !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .current-temp {
+    font-size: 75px !important;
+    top: 40px !important;
+  }
+
+  .upper-left {
+    width: calc(45% - 30px);
+  }
+
+  .lower-left {
+    width: calc(45% - 20px);
+  }
+
+  .forecast-row {
+    width: 100% !important;
   }
 }
