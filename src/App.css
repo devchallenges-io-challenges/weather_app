@@ -146,15 +146,24 @@ screen and (max-height: 1150px) {
 
   .upper {
     height: 100%;
-    border: 1px solid white;
     flex-direction: column;
   }
 
+  .lower {
+    height: 100%;
+    flex-direction: column-reverse;
+  }
+
+  .upper-left {
+    width: calc(100% - 35px);
+    height: 25% !important;
+  }
+
   .main-card {
-    height: 50% !important;
+    height: 100% !important;
     position: relative !important;
     top: 50%;
-    left: 50%;
+    left: 48%;
     transform: translate(-50%, -50%);
   }
 
@@ -163,9 +172,9 @@ screen and (max-height: 1150px) {
     top: 40px !important;
   }
 
-  .upper-left {
-    width: calc(100% - 30px);
-    height: 80% !important;
+  .upper-right {
+    width: calc(95% - 35px);
+    height: 75% !important;
   }
 
   .lower-left {
@@ -174,6 +183,17 @@ screen and (max-height: 1150px) {
 
   .forecast-row {
     width: 100% !important;
+  }
+
+  .hourly-forecast {
+    width: 70px !important;
+    height: 230px;
+  }
+
+  .hourly-container {
+    justify-content: center;
+    gap: 20px !important;
+    height: 87% !important;
   }
 
 }
