@@ -175,7 +175,6 @@ export default function OtherCities({ unit, getWeatherIcon }) {
             LS: "Lesotho",
             SZ: "Eswatini (Swaziland)",
             NA: "Namibia",
-            BJ: "Benin",
             GM: "Gambia",
         };
 

@@ -11,7 +11,7 @@ export default function Nav({ tempChoice, setTempChoice, setCity, city }) {
 
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
-            const chosenCity = inputValue.toLowerCase();
+            // const chosenCity = inputValue.toLowerCase();
             setCity(inputValue); // Submit input when Enter is pressed
             // console.log("Submitted city:", city);
         }

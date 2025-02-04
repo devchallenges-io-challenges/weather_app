@@ -3,7 +3,6 @@ import "../CSS/Hourly.css";
 
 export default function Hourly({ weatherData, getWeatherIcon }) {
     const [hourlyForecasts, setHourlyForecasts] = useState([]);
-    const [loading, setLoading] = useState(true);
 
     const updateHourlyForecasts = () => {
         if (weatherData && weatherData.list && weatherData.list.length > 0) {
@@ -16,7 +15,7 @@ export default function Hourly({ weatherData, getWeatherIcon }) {
     useEffect(() => {
         updateHourlyForecasts();
         // console.log("Hourly Forecasts: ", hourlyForecasts);
-    }, [weatherData]);
+    }, [weatherData, updateHourlyForecasts]);
 
     return (
         <>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, use } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Nav from './Components/Nav';
 import MainCard from './Components/MainCard';
@@ -108,7 +108,7 @@ function App() {
       }
     };
     fetchForecast();
-  }, [unit, city]); // ✅ Runs when `unit` changes
+  }, [unit, city, forecastLink]); // ✅ Runs when `unit` changes
 
   // Fetch Current Weather Data
   useEffect(() => {
