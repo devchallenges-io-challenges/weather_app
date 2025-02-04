@@ -127,7 +127,7 @@ function App() {
       }
     };
     fetchCurrentWeather();
-  }, [unit, city]);
+  }, [unit, city, currentWeatherLink]);
 
   useEffect(() => {
     if (!weatherData || !weatherData.list) return; // ✅ Prevents calling getFiveDayForecast on null
