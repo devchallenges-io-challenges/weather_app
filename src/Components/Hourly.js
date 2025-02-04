@@ -4,18 +4,18 @@ import "../CSS/Hourly.css";
 export default function Hourly({ weatherData, getWeatherIcon }) {
     const [hourlyForecasts, setHourlyForecasts] = useState([]);
 
-    const updateHourlyForecasts = () => {
+    const updateHourlyForecasts = useCallback(() => {
         if (weatherData && weatherData.list && weatherData.list.length > 0) {
             setHourlyForecasts(weatherData.list.slice(0, 7));
         } else {
             console.warn("weatherData.list is not available yet", weatherData);
         }
-    };
-    // Runs when weatherData changes
+    }, [weatherData]); // Only updates when weatherData changes
+
+    // Runs only when weatherData changes (no infinite loop)
     useEffect(() => {
         updateHourlyForecasts();
-        // console.log("Hourly Forecasts: ", hourlyForecasts);
-    }, [weatherData, updateHourlyForecasts]);
+    }, [updateHourlyForecasts]);
 
     return (
         <>
