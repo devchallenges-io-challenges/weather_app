@@ -181,7 +181,6 @@ export default function OtherCities({ unit, getWeatherIcon }) {
         return countryNames[code] || code; // Return full name if available, otherwise return abbreviation
     };
 
-
     useEffect(() => {
         const fetchWeather = async () => {
             setLoading(true);
@@ -221,7 +220,7 @@ export default function OtherCities({ unit, getWeatherIcon }) {
         };
 
         fetchWeather();
-    }, [unit]);
+    }, [unit, cities]);
 
     return (
         <>
