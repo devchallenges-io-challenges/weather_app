@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
 import { format, parseISO, isToday } from 'date-fns';
 import "../CSS/FiveDayForecast.css";
 
-export default function FiveDayForecast({ getWeatherIcon, forecast, weatherData }) {
+export default function FiveDayForecast({ getWeatherIcon, forecast }) {
     // useEffect(() => {
     //     console.log("Five Day Forecast: ", forecast);
     // }, [forecast]);

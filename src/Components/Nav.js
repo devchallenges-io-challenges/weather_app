@@ -1,4 +1,4 @@
-import react, { useState, useEffect, use } from 'react';
+import { useState } from 'react';
 import "../CSS/Nav.css";
 import TempSelector from './Temp-Selector';
 

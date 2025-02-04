@@ -1,4 +1,3 @@
-// import react, { useState, useEffect } from 'react';
 import "../CSS/Temp-Selector.css";
 
 export default function TempSelector({ tempChoice, setTempChoice }) {

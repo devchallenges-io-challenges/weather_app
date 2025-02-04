@@ -1,4 +1,4 @@
-import react, { useState, useEffect, use } from 'react';
+import { useState, useEffect } from 'react';
 import "../CSS/Hourly.css";
 
 export default function Hourly({ weatherData, getWeatherIcon }) {
